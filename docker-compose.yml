@@ -1,0 +1,26 @@
+version: '2'
+services:
+  mipStagingGui:
+    image: rightctrl/php:7.0
+    volumes:
+     - ~/public_html:/var/www/www_example.com/public_html
+#     - ./logs:/var/www/www_example.com/logs
+#     - ./fileserver:/fileserver
+    ports:
+      - "91:80"
+    mem_limit: 1g
+    cpuset: 0,1
+    restart: always
+    environment:
+       servn: "example.com"
+       cname: "www"
+       TIMEZONE: 'Asia/Tokyo'
+       SUBJ: '/C=IN/ST=Kerala/L=MarketPlace/commonName=*.example.com'
+       PASSPHRASE: ""
+    ulimits:
+     nproc: 65535
+     core: 0
+     nofile:
+      soft: 20000
+      hard: 40000
+
