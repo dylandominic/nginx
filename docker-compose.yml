@@ -21,6 +21,6 @@ services:
      nproc: 65535
      core: 0
      nofile:
-      soft: 20000
-      hard: 40000
+      soft: 2000
+      hard: 4000
 
